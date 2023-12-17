@@ -1,0 +1,13 @@
+default config 
+from flask import Flask, render_template, request, session, redirect
+from flask_socketio import join_room, leave_room, send, SocketIO
+import random #to generate random room code
+from string import ascii_uppercase
+
+app = Flask(__name__)#initialize flask app
+app.config['SECRET_KEY'] = "abc"
+
+socketio = SocketIO(app)
+
+if __name=="__main__":
+    socketio.run(app, debug=True)
